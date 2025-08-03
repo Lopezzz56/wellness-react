@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import axios from 'axios';
 import API_BASE_URL from '../../config/api';
+import { useNavigate } from 'react-router-dom';
 
 type SessionFormProps = {
   existingSession?: any; // if editing an existing session
@@ -15,6 +16,7 @@ const SessionEditorForm = ({ existingSession }: SessionFormProps) => {
     video_url: existingSession?.video_url || '',
     json_file_url: existingSession?.json_file_url || '',
   });
+const navigate = useNavigate();
 
   const [statusMsg, setStatusMsg] = useState('');
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -43,9 +45,9 @@ const handleAutoSave = async () => {
       { headers: { Authorization: `Bearer ${token}` } }
     );
 
-    // ✅ If session was newly created and no ID existed before
     if (!existingSession && res.data && res.data._id) {
-      window.location.href = `${API_BASE_URL}/editor/${res.data._id}`; // ✅ redirect to edit page
+      navigate(`/editor/${res.data._id}`);
+      // window.location.href = `${API_BASE_URL}/editor/${res.data._id}`; //  redirect to edit page
     }
 
     setStatusMsg('Draft auto-saved');

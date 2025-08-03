@@ -25,6 +25,7 @@ function App() {
             </ProtectedRoute>
           }
         >
+          <Route index element={<Navigate to="dashboard" />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="create-session" element={<SessionEditor />} />
           <Route path="my-sessions" element={<MySession />} />
@@ -35,7 +36,7 @@ function App() {
         </Route>
 
         {/* Catch-all */}
-        <Route path="*" element={<Navigate to="/" />} />
+      <Route path="*" element={<Navigate to="/dashboard" />} />
       </Routes>
     </Router>
   );
