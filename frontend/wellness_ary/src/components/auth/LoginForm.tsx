@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
+import API_BASE_URL from '../../config/api';
+
 
 export default function LoginForm() {
   const [email, setEmail] = useState('');
@@ -8,7 +10,7 @@ export default function LoginForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      const res = await axios.post(`${API_BASE_URL}/api/auth/login`, { email, password });
       localStorage.setItem('token', res.data.token);
       window.location.href = '/'; // Redirect to dashboard
     } catch (err) {

@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import axios from 'axios';
+import API_BASE_URL from '../../config/api';
 
 type SessionFormProps = {
   existingSession?: any; // if editing an existing session
@@ -33,7 +34,7 @@ const handleAutoSave = async () => {
   try {
     const token = localStorage.getItem('token');
     const res = await axios.post(
-      'http://localhost:5000/api/my-sessions/save-draft',
+      `${API_BASE_URL}/api/my-sessions/save-draft`,
       {
         ...formData,
         id: existingSession?._id,
@@ -68,7 +69,7 @@ const handlePublish = async () => {
   try {
     const token = localStorage.getItem("token");
     await axios.post(
-      "http://localhost:5000/api/my-sessions/publish",
+      `${API_BASE_URL}/api/my-sessions/publish`,
       {
         id: existingSession._id?.$oid || existingSession._id?.toString?.() || existingSession._id
       },

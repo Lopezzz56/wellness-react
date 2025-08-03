@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import API_BASE_URL from '../../config/api';
 
 export default function SignupForm() {
   const [email, setEmail] = useState('');
@@ -8,7 +9,7 @@ export default function SignupForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/auth/register', { email, password });
+      await axios.post(`${API_BASE_URL}/api/auth/register`, { email, password });
       alert('Signup successful! You can now log in.');
     } catch (err) {
       alert('Signup failed');

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import SessionEditorForm from "../components/sessions/SessionEditorForm";
+import API_BASE_URL from '../config/api'; 
 
 export default function SessionEditor() {
   const { id } = useParams();
@@ -12,7 +13,7 @@ export default function SessionEditor() {
     if (!id) return; // New mode, don't fetch
     const fetchSession = async () => {
       const token = localStorage.getItem("token");
-      const res = await axios.get(`http://localhost:5000/api/my-sessions/${id}`, {
+      const res = await axios.get(`${API_BASE_URL}/api/my-sessions/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

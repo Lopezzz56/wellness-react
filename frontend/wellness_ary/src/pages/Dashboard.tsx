@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import SessionCard from '../components/sessions/SessionCard';
+import API_BASE_URL from '../config/api'; 
 
 type Session = {
   _id: string;
@@ -14,7 +15,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     const fetchSessions = async () => {
-      const res = await axios.get('http://localhost:5000/api/sessions');
+      const res = await axios.get(`${API_BASE_URL}/api/sessions`);
       setSessions(res.data);
     };
     fetchSessions();

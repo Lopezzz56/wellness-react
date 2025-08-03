@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import SessionCard from '../components/sessions/SessionCard';
+import API_BASE_URL from '../config/api'; 
 
 type Session = {
   _id: string;
@@ -16,7 +17,7 @@ const MySession = () => {
     const fetchSessions = async () => {
       const token = localStorage.getItem('token');
       try {
-        const res = await axios.get('http://localhost:5000/api/my-sessions', {
+        const res = await axios.get(`${API_BASE_URL}/api/my-sessions`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setSessions(res.data);
