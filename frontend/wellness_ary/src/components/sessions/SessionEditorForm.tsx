@@ -45,7 +45,7 @@ const handleAutoSave = async () => {
 
     // ✅ If session was newly created and no ID existed before
     if (!existingSession && res.data && res.data._id) {
-      window.location.href = `/editor/${res.data._id}`; // ✅ redirect to edit page
+      window.location.href = `${API_BASE_URL}/editor/${res.data._id}`; // ✅ redirect to edit page
     }
 
     setStatusMsg('Draft auto-saved');
