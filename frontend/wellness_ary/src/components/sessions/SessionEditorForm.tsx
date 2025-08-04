@@ -86,12 +86,9 @@ const handlePublish = async () => {
     setStatusMsg("Failed to publish");
   }
 };
-
-
-
   return (
-    <div className="max-w-2xl mx-auto mt-10 bg-white p-6 rounded-2xl shadow">
-      <h2 className="text-2xl font-bold mb-6">{existingSession ? 'Edit' : 'New'} Session</h2>
+    <div className="max-w-3xl mx-auto mt-12 bg-black/10 backdrop-blur-md p-8 rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.3)]">
+      <h2 className="text-3xl font-bold mb-6 text-center text-white">{existingSession ? 'Edit' : 'New'} Session</h2>
       <form className="flex flex-col gap-4">
         <input
           type="text"
@@ -99,7 +96,7 @@ const handlePublish = async () => {
           value={formData.title}
           placeholder="Session Title"
           onChange={handleChange}
-          className="p-2 border rounded"
+  className="p-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 text-white placeholder-white bg-transparent"
         />
         <input
           type="text"
@@ -107,7 +104,7 @@ const handlePublish = async () => {
           value={formData.tags}
           placeholder="Tags (comma separated)"
           onChange={handleChange}
-          className="p-2 border rounded"
+  className="p-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2  text-white placeholder-white bg-transparent"
         />
         <input
           type="text"
@@ -115,7 +112,8 @@ const handlePublish = async () => {
           value={formData.image_url}
           placeholder="Image URL"
           onChange={handleChange}
-          className="p-2 border rounded"
+  className="p-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2  text-white placeholder-white bg-transparent"
+
         />
         <input
           type="text"
@@ -123,14 +121,14 @@ const handlePublish = async () => {
           value={formData.video_url}
           placeholder="Video URL"
           onChange={handleChange}
-          className="p-2 border rounded"
+  className="p-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 text-white placeholder-white bg-transparent"
         />
         <textarea
           name="description"
           value={formData.description}
           placeholder="Description"
           onChange={handleChange}
-          className="p-2 border rounded min-h-[120px]"
+  className="p-3 border border-gray-300 rounded-xl shadow-sm min-h-[120px] resize-none focus:outline-none focus:ring-2 text-white placeholder-white bg-transparent"
         ></textarea>
 
         <input
@@ -139,21 +137,21 @@ const handlePublish = async () => {
           value={formData.json_file_url}
           placeholder="JSON File URL"
           onChange={handleChange}
-          className="p-2 border rounded"
+  className="p-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 text-white placeholder-white bg-transparent"
         />
 
         <div className="flex gap-4 mt-4">
           <button
             type="button"
             onClick={handleSaveDraft}
-            className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
+            className="border border-gray-300 bg-transparent rounded-xl shadow-sm hover:font-bold focus:outline-none focus:ring-2 text-white px-4 py-2 rounded hover:bg-white/10"
           >
             Save as Draft
           </button>
           <button
             type="button"
             onClick={handlePublish}
-            className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+            className="border border-gray-300 bg-transparent rounded-xl shadow-sm hover:font-bold focus:outline-none focus:ring-2  text-white px-4 py-2 rounded hover:bg-white/10"
           >
             Publish
           </button>
@@ -162,16 +160,16 @@ const handlePublish = async () => {
 
 {isPublished ? (
   <div className="mt-6 border-t pt-4">
-    <p className="text-green-600 font-semibold">✅ Session published successfully!</p>
+    <p className="text-green-600 font-semibold"> Session published successfully!</p>
     <button
-      className="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-      onClick={() => window.location.href = '/editor'} // 🔁 Load empty editor
+      className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700 transition"
+      onClick={() => window.location.href = '/editor'} 
     >
       Create New Session
     </button>
   </div>
 ) : (
-  statusMsg && <div className="mt-4 text-sm text-gray-600">{statusMsg}</div>
+  statusMsg && <div className="mt-4 text-m text-red">{statusMsg}</div>
 )}
 
     </div>

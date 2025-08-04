@@ -39,19 +39,25 @@ const Profile = () => {
   };
 
   if (loading) return <p className="text-center mt-10">Loading...</p>;
-
-  return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-xl shadow">
-      <h2 className="text-2xl font-bold mb-4"> Profile</h2>
-      <p className="text-lg mb-6"> <strong>Email:</strong> {email}</p>
-      <button
-        onClick={handleLogout}
-        className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded"
-      >
-         Logout
-      </button>
+return (
+  <div className="flex justify-center items-center min-h-[60vh] px-4">
+    <div className="w-full max-w-md bg-transparent rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.5)] transition-all duration-300 p-6">
+      <h2 className="text-2xl text-white font-bold mb-4 text-center">Profile</h2>
+      <p className="text-lg text-white mb-6 text-center">
+        <strong>Email:</strong> {email}
+      </p>
+      <div className="flex justify-center">
+        <button
+          onClick={handleLogout}
+          className="border border-gray-300 bg-transparent rounded-xl shadow-sm hover:font-bold focus:outline-none focus:ring-2 text-white px-4 py-2 hover:bg-white/10"
+        >
+          Logout
+        </button>
+      </div>
     </div>
-  );
+  </div>
+);
+
 };
 
 export default Profile;
