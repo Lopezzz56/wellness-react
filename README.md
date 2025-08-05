@@ -1,5 +1,10 @@
 # Wellness Sessions Platform — Documentation
 
+
+
+https://github.com/user-attachments/assets/cbd85fa4-cc80-44be-a40c-9ddf5c06dad6
+
+
 ## Setup Instructions
 
 ### Folder Structure
